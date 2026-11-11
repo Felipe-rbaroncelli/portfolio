@@ -864,6 +864,36 @@ footer {
 @media (max-width: 480px) {
   section { padding: 100px 5vw 40px; }
 }
+/* Mundo SENAI */
+.senai-card, .senai-dialog {
+  background: var(--bg);
+  color: var(--text);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-card);
+  padding: clamp(1rem, 3vw, 1.75rem);
+}
+.senai-card { margin: 1.25rem 0; background: var(--card-bg); }
+.senai-card h3, .senai-dialog h3 { margin-bottom: .6rem; }
+.senai-card img { display: block; width: 100%; max-width: 420px; height: auto; border-radius: 12px; }
+.senai-card figcaption { margin-top: .6rem; }
+.senai-actions { display: flex; flex-wrap: wrap; gap: .65rem; margin-top: 1rem; }
+.senai-button {
+  display: inline-block;
+  padding: .65rem 1rem;
+  border: 1px solid transparent;
+  border-radius: var(--radius-pill);
+  background: var(--primary);
+  color: #161616;
+  font: inherit;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+}
+.senai-button:hover { filter: brightness(1.1); }
+.senai-info { background: var(--card-bg); border-color: var(--card-border); color: var(--text); }
+.senai-dialog { width: min(34rem, calc(100% - 2rem)); margin: auto; }
+.senai-dialog::backdrop { background: rgba(0, 0, 0, .7); }
+.senai-dialog form { margin-top: 1rem; }
 </style>
 </head>
 <body>
@@ -922,6 +952,27 @@ footer {
   <!-- ===================== MINHAS ENTREGAS ===================== -->
   <section id="entregas" class="reveal">
     <h2>Minhas entregas</h2>
+    <article id="mundo-senai" class="senai-card">
+      <h3>Mundo SENAI 2026</h3>
+      <figure>
+        <img src="https://felipe-rbaroncelli.github.io/mundo-senai-2026/fotos/equipe-maquete.jpg" alt="Equipe com a maquete de casa inteligente" width="720" height="729" loading="lazy">
+        <figcaption>Apresentei a maquete de casa inteligente e expliquei o LED da casa, o varal automático e a ventilação.</figcaption>
+      </figure>
+      <div class="senai-actions">
+        <a class="senai-button" href="https://felipe-rbaroncelli.github.io/mundo-senai-2026/">Acessar Mundo SENAI 2026</a>
+        <button class="senai-button senai-info" id="senai-abrir" type="button" aria-haspopup="dialog">O que é o MUNDO SENAI?</button>
+      </div>
+      <dialog class="senai-dialog" id="senai-dialog" aria-labelledby="senai-titulo">
+        <h3 id="senai-titulo">O que é o MUNDO SENAI?</h3>
+        <p>É um evento em que o SENAI recebe visitantes e os estudantes mostram na prática o que aprenderam no curso.</p>
+        <form method="dialog"><button class="senai-button" autofocus>OK, entendi!</button></form>
+      </dialog>
+    </article>
+    <script>
+      document.getElementById('senai-abrir').addEventListener('click', function () {
+        document.getElementById('senai-dialog').showModal();
+      });
+    </script>
     <p class="section-sub"><span style="font-family: var(--font-mono); opacity: 0.7;">// </span>Aperta as setinhas do Game Boy pra passar as entregas.</p>
 
     <!-- Console Game Boy Advance: a tela mostra uma entrega por vez, controlada pelos botões -->
@@ -1135,7 +1186,7 @@ footer {
 
 /* ============================================================
    6) GAME BOY DAS ENTREGAS + ÁLBUM
-   Guarda os dados das 5 entregas num array e desenha só a
+   Guarda os dados das entregas num array e desenha só a
    entrega atual na "telinha". Na entrega 01 (Capa do Meu Álbum),
    o START abre o álbum dentro do próprio Game Boy:
      - cruz direcional / L / R / A  -> avançam e voltam as telas
@@ -1192,6 +1243,15 @@ footer {
       data: '[PREENCHER data]',
       aprendi: '[PREENCHER o que aprendi]',
       link: '[PREENCHER link do GitHub]'
+    },
+    {
+      num: '07',
+      arquivo: 'Mundo SENAI',
+      titulo: 'Mundo SENAI 2026',
+      status: 'Concluída',
+      data: 'Novembro de 2026',
+      aprendi: 'Sistemas embarcados, IoT e trabalho em equipe.',
+      link: 'https://felipe-rbaroncelli.github.io/mundo-senai-2026/'
     }
   ];
 
