@@ -294,7 +294,7 @@ section { position: relative; z-index: 1; padding: 120px 6vw 60px; max-width: 11
 /* Corpo do console: formato horizontal do GBA, com "ombros" L/R no topo */
 .gameboy {
   position: relative;
-  width: min(560px, 92vw);
+  width: min(760px, 100%);
   margin: 30px auto 0;
   background: linear-gradient(160deg, #CDCED0, #9FA0A3);
   border-radius: 26px 26px 54px 54px;
@@ -865,17 +865,13 @@ footer {
   section { padding: 100px 5vw 40px; }
 }
 /* Mundo SENAI */
-.senai-card, .senai-dialog {
+.senai-dialog {
   background: var(--bg);
   color: var(--text);
   border: 1px solid var(--card-border);
   border-radius: var(--radius-card);
   padding: clamp(1rem, 3vw, 1.75rem);
 }
-.senai-card { margin: 1.25rem 0; background: var(--card-bg); }
-.senai-card h3, .senai-dialog h3 { margin-bottom: .6rem; }
-.senai-card img { display: block; width: 100%; max-width: 420px; height: auto; border-radius: 12px; }
-.senai-card figcaption { margin-top: .6rem; }
 .senai-actions { display: flex; flex-wrap: wrap; gap: .65rem; margin-top: 1rem; }
 .senai-button {
   display: inline-block;
@@ -894,6 +890,16 @@ footer {
 .senai-dialog { width: min(34rem, calc(100% - 2rem)); margin: auto; }
 .senai-dialog::backdrop { background: rgba(0, 0, 0, .7); }
 .senai-dialog form { margin-top: 1rem; }
+#mundo-senai { scroll-margin-top: 5rem; }
+.gb-senai .gb-title { min-height: 0; }
+.gb-senai p, .gb-senai .senai-button { font-family: var(--font-body); }
+.gb-senai .gb-title { font-family: 'Press Start 2P', var(--font-mono); }
+.gb-senai .senai-button { font-size: .85rem; }
+.gb-senai .senai-info { color: #18241a; border-color: currentColor; }
+.gb-senai figcaption { font: .85rem/1.45 var(--font-body); margin-top: .65rem; }
+.gb-senai-images { display: grid; grid-template-columns: 2fr 1fr; gap: .55rem; align-items: center; }
+.gb-senai-images img { display: block; width: 100%; max-height: 330px; object-fit: contain; border-radius: 6px; }
+@media(max-width: 520px) { .gb-senai-images { grid-template-columns: 1fr; } .gb-senai-images img { max-height: 220px; } }
 </style>
 </head>
 <body>
@@ -952,31 +958,15 @@ footer {
   <!-- ===================== MINHAS ENTREGAS ===================== -->
   <section id="entregas" class="reveal">
     <h2>Minhas entregas</h2>
-    <article id="mundo-senai" class="senai-card">
-      <h3>Mundo SENAI 2026</h3>
-      <figure>
-        <img src="https://felipe-rbaroncelli.github.io/mundo-senai-2026/fotos/equipe-maquete.jpg" alt="Equipe com a maquete de casa inteligente" width="720" height="729" loading="lazy">
-        <figcaption>Apresentei a maquete de casa inteligente e expliquei o LED da casa, o varal automático e a ventilação.</figcaption>
-      </figure>
-      <div class="senai-actions">
-        <a class="senai-button" href="https://felipe-rbaroncelli.github.io/mundo-senai-2026/">Acessar Mundo SENAI 2026</a>
-        <button class="senai-button senai-info" id="senai-abrir" type="button" aria-haspopup="dialog">O que é o MUNDO SENAI?</button>
-      </div>
-      <dialog class="senai-dialog" id="senai-dialog" aria-labelledby="senai-titulo">
+    <dialog class="senai-dialog" id="senai-dialog" aria-labelledby="senai-titulo">
         <h3 id="senai-titulo">O que é o MUNDO SENAI?</h3>
         <p>É um evento em que o SENAI recebe visitantes e os estudantes mostram na prática o que aprenderam no curso.</p>
         <form method="dialog"><button class="senai-button" autofocus>OK, entendi!</button></form>
       </dialog>
-    </article>
-    <script>
-      document.getElementById('senai-abrir').addEventListener('click', function () {
-        document.getElementById('senai-dialog').showModal();
-      });
-    </script>
     <p class="section-sub"><span style="font-family: var(--font-mono); opacity: 0.7;">// </span>Aperta as setinhas do Game Boy pra passar as entregas.</p>
 
     <!-- Console Game Boy Advance: a tela mostra uma entrega por vez, controlada pelos botões -->
-    <div class="gameboy">
+    <div class="gameboy" id="mundo-senai">
       <button class="gba-shoulder gba-shoulder-l" id="gb-l" aria-label="Entrega anterior">L</button>
       <button class="gba-shoulder gba-shoulder-r" id="gb-r" aria-label="Próxima entrega">R</button>
 
@@ -1464,6 +1454,27 @@ footer {
 
   function desenharEntrega() {
     const e = entregas[indiceAtual];
+    if (e.num === '07') {
+      tela.innerHTML = `<article class="gb-senai">
+        <h3 class="gb-title">Mundo SENAI 2026</h3>
+        <figure>
+          <div class="gb-senai-images">
+            <img src="https://felipe-rbaroncelli.github.io/mundo-senai-2026/fotos/equipe-maquete.jpg" alt="Equipe com a maquete da casa inteligente">
+            <img src="https://felipe-rbaroncelli.github.io/mundo-senai-2026/fotos/maquete-cinza.png" alt="Ilustração da maquete com sobrado e garagem">
+          </div>
+          <figcaption>Apresentei a maquete de casa inteligente e expliquei o LED da casa, o varal automático e a ventilação.</figcaption>
+        </figure>
+        <div class="senai-actions">
+          <a class="senai-button" href="https://felipe-rbaroncelli.github.io/mundo-senai-2026/">Acessar Mundo SENAI 2026</a>
+          <button class="senai-button senai-info" type="button" aria-haspopup="dialog">O que é o MUNDO SENAI?</button>
+        </div>
+      </article>`;
+      tela.querySelector('.senai-info').addEventListener('click', function () {
+        document.getElementById('senai-dialog').showModal();
+      });
+      montarDots(entregas.length, indiceAtual);
+      return;
+    }
     const concluida = e.status === 'Concluída';
 
     tela.innerHTML =
@@ -1603,7 +1614,7 @@ footer {
     if (modo === 'album') { moverAlbum(1); return; }
     const e = entregas[indiceAtual];
     if (e.status === 'Concluída' && e.link && e.link.indexOf('[PREENCHER') === -1) {
-      window.open(e.link, '_blank', 'noopener');
+      if (e.num === '07') { location.assign(e.link); } else { window.open(e.link, '_blank', 'noopener'); }
     }
   });
 
@@ -1695,6 +1706,9 @@ footer {
     simularToque(id);
   });
 
+  if (location.hash === '#mundo-senai') {
+    indiceAtual = entregas.findIndex(function (entrega) { return entrega.num === '07'; });
+  }
   desenharEntrega();
   atualizarHint();
 })();
