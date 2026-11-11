@@ -891,15 +891,47 @@ footer {
 .senai-dialog::backdrop { background: rgba(0, 0, 0, .7); }
 .senai-dialog form { margin-top: 1rem; }
 #mundo-senai { scroll-margin-top: 5rem; }
-.gb-senai .gb-title { min-height: 0; }
-.gb-senai p, .gb-senai .senai-button { font-family: var(--font-body); }
-.gb-senai .gb-title { font-family: 'Press Start 2P', var(--font-mono); }
-.gb-senai .senai-button { font-size: .85rem; }
-.gb-senai .senai-info { color: #18241a; border-color: currentColor; }
-.gb-senai figcaption { font: .85rem/1.45 var(--font-body); margin-top: .65rem; }
-.gb-senai-images { display: grid; grid-template-columns: 2fr 1fr; gap: .55rem; align-items: center; }
-.gb-senai-images img { display: block; width: 100%; max-height: 400px; object-fit: contain; border-radius: 6px; }
-@media(max-width: 520px) { .gb-senai-images { grid-template-columns: 1fr; } .gb-senai-images img { max-height: 220px; } }
+.gb-senai {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(.8rem, 2.5vw, 1.4rem);
+  align-items: center;
+  padding: clamp(.45rem, 1.8vw, .9rem);
+  color: #243326;
+  font: .9rem/1.5 var(--font-body);
+}
+.gb-senai .gb-title {
+  font: 700 clamp(1.2rem, 3vw, 1.65rem)/1.15 var(--font-head);
+  min-height: 0;
+  margin: 0;
+}
+.gb-senai-photo {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+.gb-senai-details { display: grid; gap: .75rem; }
+.gb-senai-summary { display: flex; align-items: center; gap: .75rem; }
+.gb-senai-summary img {
+  width: clamp(64px, 10vw, 90px);
+  height: auto;
+  border-radius: 6px;
+}
+.gb-senai .senai-actions { margin: 0; }
+.gb-senai .senai-button {
+  border-radius: 8px;
+  padding: .55rem .8rem;
+  font-size: .85rem;
+  text-align: center;
+  background: #263c2d;
+  color: #f4f8ed;
+}
+.gb-senai .senai-info { background: transparent; color: #243326; border-color: #475d49; }
+@media (max-width: 560px) {
+  .gb-senai { grid-template-columns: 1fr; }
+  .gb-senai-photo { max-height: 250px; object-fit: contain; background: #879b7b; }
+}
 </style>
 </head>
 <body>
@@ -1457,17 +1489,17 @@ footer {
     const e = entregas[indiceAtual];
     if (e.num === '07') {
       tela.innerHTML = `<article class="gb-senai">
-        <h3 class="gb-title">Mundo SENAI 2026</h3>
-        <figure>
-          <div class="gb-senai-images">
-            <img src="https://felipe-rbaroncelli.github.io/mundo-senai-2026/fotos/equipe-maquete.jpg" alt="Equipe com a maquete da casa inteligente">
+        <img class="gb-senai-photo" src="https://felipe-rbaroncelli.github.io/mundo-senai-2026/fotos/equipe-maquete.jpg" alt="Equipe com a maquete da casa inteligente" width="720" height="729">
+        <div class="gb-senai-details">
+          <h3 class="gb-title">Mundo SENAI 2026</h3>
+          <div class="gb-senai-summary">
             <img src="https://felipe-rbaroncelli.github.io/mundo-senai-2026/fotos/maquete-cinza.png" alt="Ilustração da maquete com sobrado e garagem">
+            <p>Apresentei a maquete de casa inteligente e expliquei o LED da casa, o varal automático e a ventilação.</p>
           </div>
-          <figcaption>Apresentei a maquete de casa inteligente e expliquei o LED da casa, o varal automático e a ventilação.</figcaption>
-        </figure>
-        <div class="senai-actions">
-          <a class="senai-button" href="https://felipe-rbaroncelli.github.io/mundo-senai-2026/">Acessar Mundo SENAI 2026</a>
-          <button class="senai-button senai-info" type="button" aria-haspopup="dialog">O que é o MUNDO SENAI?</button>
+          <div class="senai-actions">
+            <a class="senai-button" href="https://felipe-rbaroncelli.github.io/mundo-senai-2026/">Acessar Mundo SENAI 2026</a>
+            <button class="senai-button senai-info" type="button" aria-haspopup="dialog">O que é o MUNDO SENAI?</button>
+          </div>
         </div>
       </article>`;
       tela.querySelector('.senai-info').addEventListener('click', function () {
