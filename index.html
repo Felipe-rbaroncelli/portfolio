@@ -1190,8 +1190,6 @@ footer {
    Todos os botões ganham animação de "apertar" (2.5D).
    ============================================================ */
 (function () {
-  // [PREENCHER] edite aqui os dados de cada entrega: data, o que
-  // aprendeu, o link do GitHub e o status ("Em breve" ou "Concluída").
   const entregas = [
     {
       num: '01',
@@ -1200,7 +1198,7 @@ footer {
       status: 'Em breve',
       data: '[PREENCHER data]',
       aprendi: '[PREENCHER o que aprendi]',
-      link: '[PREENCHER link do GitHub]'
+      link: 'https://felipe-rbaroncelli.github.io/capa-do-meu-album/'
     },
     {
       num: '02',
@@ -1209,7 +1207,7 @@ footer {
       status: 'Em breve',
       data: '[PREENCHER data]',
       aprendi: '[PREENCHER o que aprendi]',
-      link: '[PREENCHER link do GitHub]'
+      link: 'https://github.com/Felipe-rbaroncelli/dashboard-quem-sou-eu'
     },
     {
       num: '04',
@@ -1218,7 +1216,7 @@ footer {
       status: 'Em breve',
       data: '[PREENCHER data]',
       aprendi: '[PREENCHER o que aprendi]',
-      link: '[PREENCHER link do GitHub]'
+      link: 'https://github.com/Felipe-rbaroncelli/ancoras-de-carreira'
     },
     {
       num: '05',
@@ -1227,7 +1225,7 @@ footer {
       status: 'Em breve',
       data: '[PREENCHER data]',
       aprendi: '[PREENCHER o que aprendi]',
-      link: '[PREENCHER link do GitHub]'
+      link: 'https://github.com/Felipe-rbaroncelli/manifesto'
     },
     {
       num: '07',
@@ -1245,207 +1243,18 @@ footer {
       status: 'Concluída',
       data: '25/11/2026',
       aprendi: 'Profissões da minha família.',
-      link: 'assets/arvore-genealogica.png'
+      link: 'https://felipe-rbaroncelli.github.io/arvore-das-profissoes/'
     }
   ];
-
-  /* ---------- DADOS DO ÁLBUM (edite os textos à vontade) ---------- */
-
-  // Explicação da capa: só aparece quando aperta SELECT na capa
-  const capaInfo = [
-    {
-      nome: '1 · Título do álbum: Camada por camada',
-      txt: 'Uma frase que resume quem eu sou agora, não quem eu quero ser. Hoje eu sou uma peça ainda sendo impressa: já tem base, já tem forma, mas falta muita camada pra ficar pronta. Isso não me incomoda, porque cada camada só existe por causa da anterior.'
-    },
-    {
-      nome: '2 · Nome artístico: FRB',
-      txt: 'São as iniciais de Felipe Rezende Baroncelli, as mesmas que assinam o topo do meu portfólio. É assim que eu quero ser lembrado: curto, direto e fácil de reconhecer, como a marca gravada no cantinho de uma peça impressa.'
-    },
-    {
-      nome: '3 · Imagem central: o cubo',
-      txt: 'Um cubo sendo impresso: o bico laranja no meio do trabalho, metade da peça pronta e o resto só no tracejado. Escolhi porque junta a minha fase e o meu hobby. Eu ainda estou sendo feito, e a impressão 3D é o jeito mais honesto que eu achei de mostrar isso.'
-    },
-    {
-      nome: '4 · Paleta de 3 cores',
-      paleta: true,
-      txt: 'Amarelo é a mão na massa, o filamento, a energia de começar. Laranja é a curiosidade, o que me faz querer abrir, testar e descobrir como as coisas funcionam. Cinza é a oficina: o concreto, os pés no chão, o que sustenta o resto. São as mesmas três cores do meu portfólio.'
-    },
-    {
-      nome: '5 · Fundo: colinas de Minas',
-      txt: 'As colinas do Sul de Minas, empilhadas em camadas cinzas como se também tivessem sido impressas. Eu sou de Varginha, e é de lá que eu venho: de um lugar de morros e de calma, onde dá tempo de pensar antes de fazer.'
-    },
-    {
-      nome: '6 · Selo: palavra é palavra',
-      txt: 'O adesivo no canto guarda um valor que eu não negocio: cumprir o que eu falo. Se eu disse que ia fazer, eu faço, mesmo quando seria mais fácil esquecer e mesmo quando tem gente pressionando pra eu desistir.'
-    }
-  ];
-
-  // As 5 faixas + a faixa bônus
-  const faixas = [
-    {
-      k: 'FAIXA 1 · UMA CRENÇA',
-      t: 'Dá pra moldar',
-      txt: 'Eu acredito que quase tudo começa como uma ideia solta e vira coisa real quando alguém decide pôr a mão na massa. Foi a impressão 3D que me ensinou isso: no começo o objeto não existe, mas ele aparece camada por camada, se eu não desistir no meio.',
-      arte: function () { return arte1(); }
-    },
-    {
-      k: 'FAIXA 2 · UM VALOR',
-      t: 'Cabe todo mundo',
-      txt: 'O que guia como eu trato as pessoas é o respeito. Eu quero tratar cada um do jeito que eu gostaria de ser tratado, sem precisar de plateia e sem depender de alguém estar olhando. Num lugar onde cabe todo mundo, ninguém precisa se encolher pra caber.',
-      arte: function () { return arte2(); }
-    },
-    {
-      k: 'FAIXA 3 · UM TALENTO',
-      t: 'Fácil pra mim (será?)',
-      txt: 'Eu pego coisa técnica rápido: um programa novo, uma configuração, um defeito que ninguém sabe achar. Só percebo que isso não é fácil pra todo mundo quando alguém me pede pra explicar e eu demoro pra lembrar como foi que eu aprendi.',
-      arte: function () { return arte3(); }
-    },
-    {
-      k: 'FAIXA 4 · UM MEDO · a faixa lenta',
-      t: 'Falha na primeira camada',
-      txt: 'Meu medo é começar errado e só perceber quando o projeto já está alto demais pra recomeçar. Na impressão 3D, se a primeira camada falha, a peça inteira vai junto. Na vida eu tento lembrar que dá pra parar, raspar a mesa e começar de novo.',
-      arte: function () { return arte4(); }
-    },
-    {
-      k: 'FAIXA 5 · UM SONHO · fecha o disco',
-      t: 'Peça final',
-      txt: 'O sonho que fecha o disco é chegar num futuro em que viver bem e criar coisas andam juntos. Eu quero aproveitar a vida, como já diz o meu plano, e ainda ter vontade de imprimir mais uma peça, aprender mais um truque e mostrar pra quem eu gosto.',
-      arte: function () { return arte5(); }
-    },
-    {
-      k: 'FAIXA BÔNUS',
-      t: 'Aprendi olhando',
-      feat: 'Meu pai',
-      txt: 'Meu pai é a pessoa que mais me influenciou a ser quem eu sou. Muito do jeito que eu levo as coisas, do que eu valorizo e do que eu tento ser veio de olhar ele de perto. Esta faixa é dele, mesmo que ele nunca tenha pedido pra aparecer no disco.',
-      arte: function () { return arte6(); }
-    }
-  ];
-
-  const TOTAL_ALBUM = faixas.length + 1; // capa + faixas
-
-  /* ---------- ARTES DE FUNDO (SVG simples, em tons de cinza) ---------- */
-
-  function fundoSvg(conteudo) {
-    return '<svg class="al-arte" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true">' + conteudo + '</svg>';
-  }
-
-  // Faixa 1: camadas sendo empilhadas sob o bico
-  function arte1() {
-    var s = '';
-    for (var i = 0; i < 7; i++) {
-      s += '<rect x="250" y="' + (272 - i * 20) + '" width="120" height="14" rx="7" fill="' + (i === 6 ? '#F5B700' : '#6A6B6E') + '"/>';
-    }
-    s += '<rect x="296" y="108" width="28" height="22" rx="4" fill="#FF5A1F"/>';
-    s += '<polygon points="300,130 320,130 314,146 306,146" fill="#FF5A1F"/>';
-    return fundoSvg(s);
-  }
-
-  // Faixa 2: várias pessoas lado a lado
-  function arte2() {
-    var xs = [60, 140, 220, 300, 370], s = '';
-    xs.forEach(function (x, i) {
-      var h = i % 2 ? 0 : 12;
-      var cor = i === 2 ? '#F5B700' : '#6A6B6E';
-      s += '<circle cx="' + x + '" cy="' + (205 + h) + '" r="' + (i === 2 ? 15 : 13) + '" fill="' + cor + '"/>';
-      s += '<path d="M' + (x - 26) + ' 300Q' + (x - 26) + ' ' + (232 + h) + ' ' + x + ' ' + (232 + h) + 'Q' + (x + 26) + ' ' + (232 + h) + ' ' + (x + 26) + ' 300Z" fill="' + cor + '"/>';
-    });
-    return fundoSvg(s);
-  }
-
-  // Faixa 3: degraus subindo sem esforço
-  function arte3() {
-    return fundoSvg(
-      '<polygon points="150,300 150,260 200,260 200,220 250,220 250,180 300,180 300,140 350,140 350,100 400,100 400,300" fill="#5F6063"/>' +
-      '<polyline points="150,260 200,260 200,220 250,220 250,180 300,180 300,140 350,140 350,100 400,100" fill="none" stroke="#F5B700" stroke-width="4"/>'
-    );
-  }
-
-  // Faixa 4: impressão que deu errado (fio embolado)
-  function arte4() {
-    return fundoSvg(
-      '<rect x="40" y="262" width="320" height="10" rx="3" fill="#6A6B6E"/>' +
-      '<path d="M40 258C90 170 130 270 180 190S260 262 300 180S350 240 390 200" fill="none" stroke="#FF5A1F" stroke-width="6" stroke-linecap="round"/>' +
-      '<path d="M60 240C110 200 150 255 200 215S280 245 340 205" fill="none" stroke="#6A6B6E" stroke-width="4" stroke-linecap="round"/>'
-    );
-  }
-
-  // Faixa 5: peça pronta, com sol no horizonte
-  function arte5() {
-    return fundoSvg(
-      '<circle cx="80" cy="90" r="28" fill="#FF5A1F"/>' +
-      '<rect x="0" y="262" width="400" height="38" fill="#4A4B4E"/>' +
-      '<g transform="translate(150 15)">' +
-      '<polygon points="90,205 150,235 150,165 90,135" fill="#55565A"/>' +
-      '<polygon points="150,235 210,205 210,135 150,165" fill="#6A6B6E"/>' +
-      '<polygon points="90,135 150,105 210,135 150,165" fill="#F5B700"/>' +
-      '</g>'
-    );
-  }
-
-  // Bônus: uma figura grande e uma pequena, lado a lado
-  function arte6() {
-    return fundoSvg(
-      '<circle cx="250" cy="150" r="24" fill="#6A6B6E"/>' +
-      '<path d="M214 300Q214 188 250 188Q286 188 286 300Z" fill="#6A6B6E"/>' +
-      '<circle cx="318" cy="210" r="14" fill="#F5B700"/>' +
-      '<path d="M298 300Q298 232 318 232Q338 232 338 300Z" fill="#F5B700"/>'
-    );
-  }
-
-  /* ---------- CAPA DO ÁLBUM (SVG feito à mão) ---------- */
-
-  function arteCapa() {
-    return '' +
-      '<svg viewBox="0 0 300 300" role="img" aria-label="Capa do álbum Camada por camada, de FRB: um cubo amarelo sendo impresso em camadas sobre colinas cinzas de Minas">' +
-      '<defs><linearGradient id="capa-fundo" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3A3B3E"/><stop offset="1" stop-color="#1F2022"/></linearGradient></defs>' +
-      '<rect width="300" height="300" fill="url(#capa-fundo)"/>' +
-      '<path d="M0 250Q60 215 120 245T240 235T300 245V300H0Z" fill="#55565A"/>' +
-      '<path d="M0 270Q70 245 140 268T300 262V300H0Z" fill="#404144"/>' +
-      '<path d="M0 288Q80 270 160 286T300 282V300H0Z" fill="#2B2C2F"/>' +
-      '<polygon points="90,205 150,235 150,193 90,163" fill="#B98900"/>' +
-      '<polygon points="150,235 210,205 210,163 150,193" fill="#F5B700"/>' +
-      '<polygon points="90,163 150,133 210,163 150,193" fill="#FFD24D"/>' +
-      '<g stroke="#1C1C1C" stroke-opacity=".35" stroke-width="1">' +
-      '<path d="M90 198L150 228M90 191L150 221M90 184L150 214M90 177L150 207M90 170L150 200"/>' +
-      '<path d="M150 228L210 198M150 221L210 191M150 214L210 184M150 207L210 177M150 200L210 170"/>' +
-      '</g>' +
-      '<path d="M90 163V135L150 105L210 135V163M150 133V105" fill="none" stroke="#F5B700" stroke-opacity=".6" stroke-dasharray="4 4"/>' +
-      '<path d="M150 150V162" stroke="#FF5A1F" stroke-width="3"/>' +
-      '<polygon points="138,118 162,118 155,148 145,148" fill="#FF5A1F"/>' +
-      '<rect x="132" y="98" width="36" height="20" rx="3" fill="#FF5A1F"/>' +
-      '<rect x="140" y="104" width="20" height="4" fill="#1C1C1C" opacity=".4"/>' +
-      '<text x="16" y="34" fill="#EDEDED" font-family="Space Grotesk, Arial, sans-serif" font-weight="700" font-size="25" letter-spacing="-.5">Camada</text>' +
-      '<text x="16" y="58" fill="#EDEDED" font-family="Space Grotesk, Arial, sans-serif" font-weight="700" font-size="25" letter-spacing="-.5">por camada</text>' +
-      '<text x="16" y="285" fill="#EDEDED" font-family="Space Grotesk, Arial, sans-serif" font-weight="700" font-size="22">FRB</text>' +
-      '<g transform="rotate(-12 262 44)">' +
-      '<circle cx="262" cy="44" r="28" fill="#FF5A1F"/>' +
-      '<circle cx="262" cy="44" r="24" fill="none" stroke="#1C1C1C" stroke-width="1.2" stroke-dasharray="2 2"/>' +
-      '<g fill="#1C1C1C" font-family="Space Grotesk, Arial, sans-serif" font-weight="700" font-size="8" text-anchor="middle">' +
-      '<text x="262" y="38">palavra</text><text x="262" y="47">é</text><text x="262" y="56">palavra</text>' +
-      '</g></g>' +
-      '</svg>';
-  }
-
-  /* ---------- ELEMENTOS DA PÁGINA ---------- */
 
   const gameboy = document.querySelector('.gameboy');
   const tela = document.getElementById('gb-screen');
-  const telaBox = tela.closest('.gameboy-screen');
   const dotsContainer = document.getElementById('gb-dots');
   const hint = document.getElementById('gb-hint');
   const estatica = document.getElementById('gb-static');
-
-  let modo = 'entregas';   // 'entregas' ou 'album'
-  const indiceSenai = entregas.findIndex(function (entrega) { return entrega.num === '07'; });
+  const indiceSenai = entregas.findIndex(function (e) { return e.num === '07'; });
   let indiceAtual = indiceSenai;
-  let albumIdx = 0;        // 0 = capa, 1..6 = faixas
-  let infoAberta = false;  // explicação da capa aberta?
-  let infoIdx = 0;
-
-  /* ---------- DESENHO DAS TELAS ---------- */
-
-  // Bolinhas indicadoras: refaz só se a quantidade mudou
-  function montarDots(total, ativo) {
+    function montarDots(total, ativo) {
     if (dotsContainer.children.length !== total) {
       dotsContainer.innerHTML = '';
       for (var i = 0; i < total; i++) {
@@ -1457,15 +1266,21 @@ footer {
     });
   }
 
-  function desenharEntrega() {
+
+    function desenharEntrega() {
     const e = entregas[indiceAtual];
+    if (e.num === '01') {
+      tela.innerHTML = `<article class="gb-arvore"><h3 class="gb-title">Capa do Meu Álbum</h3><img src="https://felipe-rbaroncelli.github.io/capa-do-meu-album/capa.svg" alt="Capa do álbum Camada por camada"><a class="senai-button" href="https://felipe-rbaroncelli.github.io/capa-do-meu-album/">Abrir álbum</a></article>`;
+      montarDots(entregas.length, indiceAtual);
+      return;
+    }
     if (e.num === '03') {
       tela.innerHTML = `<article class="gb-arvore">
         <h3 class="gb-title">Árvore das Profissões 2.0</h3>
-        <a href="assets/arvore-genealogica.png" target="_blank" rel="noopener" aria-label="Abrir árvore genealógica em tamanho maior">
-          <img src="assets/arvore-genealogica.png" alt="Árvore genealógica com as profissões dos avós, pais e tio de Felipe, identificado como estudante" width="1672" height="941">
+        <a href="https://felipe-rbaroncelli.github.io/arvore-das-profissoes/arvore-genealogica.png" target="_blank" rel="noopener" aria-label="Abrir árvore genealógica em tamanho maior">
+          <img src="https://felipe-rbaroncelli.github.io/arvore-das-profissoes/arvore-genealogica.png" alt="Árvore genealógica com as profissões dos avós, pais e tio de Felipe, identificado como estudante" width="1672" height="941">
         </a>
-        <a class="senai-button" href="assets/arvore-genealogica.png" target="_blank" rel="noopener">Ampliar imagem</a>
+        <a class="senai-button" href="https://felipe-rbaroncelli.github.io/arvore-das-profissoes/arvore-genealogica.png" target="_blank" rel="noopener">Ampliar imagem</a>
       </article>`;
       montarDots(entregas.length, indiceAtual);
       return;
@@ -1499,166 +1314,32 @@ footer {
       '<span class="gb-status">' + (concluida ? '✓ CONCLUÍDA' : '… EM BREVE') + '</span>' +
       '<p class="gb-line"><b>data:</b> ' + e.data + '</p>' +
       '<p class="gb-line"><b>aprendi:</b> ' + e.aprendi + '</p>' +
-      (indiceAtual === 0 ? '<p class="gb-start-hint">▶ APERTE START PRA ABRIR O ÁLBUM</p>' : '');
+      '<a class="senai-button" href="' + e.link + '">Ver repositório</a>';
 
     montarDots(entregas.length, indiceAtual);
   }
 
-  function desenharAlbum() {
-    if (infoAberta) {
-      const it = capaInfo[infoIdx];
-      tela.innerHTML =
-        '<div class="al-wrap"><div class="al-pagina">' +
-        '<p class="al-kicker">CAPA · ELEMENTO ' + (infoIdx + 1) + ' DE ' + capaInfo.length + '</p>' +
-        '<p class="al-titulo">' + it.nome + '</p>' +
-        (it.paleta
-          ? '<div class="al-paleta">' +
-            '<span><i style="background:#F5B700"></i>amarelo</span>' +
-            '<span><i style="background:#FF5A1F"></i>laranja</span>' +
-            '<span><i style="background:#5A5A5A"></i>cinza</span></div>'
-          : '') +
-        '<p class="al-texto">' + it.txt + '</p>' +
-        '</div></div>';
-      montarDots(capaInfo.length, infoIdx);
-      return;
-    }
 
-    if (albumIdx === 0) {
-      tela.innerHTML = '<div class="al-wrap al-capa">' + arteCapa() + '</div>';
-    } else {
-      const f = faixas[albumIdx - 1];
-      tela.innerHTML =
-        '<div class="al-wrap">' + f.arte() + '<div class="al-pagina">' +
-        '<p class="al-kicker">' + f.k + '</p>' +
-        '<p class="al-titulo">' + f.t + '</p>' +
-        (f.feat ? '<p class="al-feat"><i>feat.</i> <b>' + f.feat + '</b></p>' : '') +
-        '<p class="al-texto">' + f.txt + '</p>' +
-        '</div></div>';
-    }
-    montarDots(TOTAL_ALBUM, albumIdx);
+  function desenhar() {
+    desenharEntrega();
+    hint.textContent = '◀ ▶ trocar atividade · A abrir';
+    estatica.classList.remove('flash');
+    void estatica.offsetWidth;
+    estatica.classList.add('flash');
   }
-
-  function atualizarHint() {
-    var t = '';
-    if (modo === 'album') {
-      if (infoAberta) t = '◀ ▶ elementos · SELECT fecha a explicação';
-      else if (albumIdx === 0) t = 'SELECT explica a capa · START sai';
-      else t = 'A avança · B volta · START sai';
-    }
-    hint.textContent = t;
-  }
-
-  // Rajada rápida de estática a cada troca de tela
-  function flashEstatica(longo) {
-    estatica.classList.remove('flash', 'flash-longo');
-    void estatica.offsetWidth; // reinicia a animação
-    estatica.classList.add(longo ? 'flash-longo' : 'flash');
-  }
-
-  function desenhar(longo) {
-    if (modo === 'album') desenharAlbum(); else desenharEntrega();
-    atualizarHint();
-    flashEstatica(longo);
-  }
-
-  /* ---------- NAVEGAÇÃO ---------- */
-
-  function irPara(novoIndice) {
-    // Faz o índice "dar a volta": depois da última entrega volta pra primeira
-    indiceAtual = (novoIndice + entregas.length) % entregas.length;
+  function irPara(indice) {
+    indiceAtual = (indice + entregas.length) % entregas.length;
     desenhar();
   }
-
-  function moverAlbum(passo) {
-    if (infoAberta) {
-      infoIdx = (infoIdx + passo + capaInfo.length) % capaInfo.length;
-    } else {
-      albumIdx = (albumIdx + passo + TOTAL_ALBUM) % TOTAL_ALBUM;
-    }
-    desenhar();
-  }
-
-  function proxima()  { if (modo === 'album') moverAlbum(1);  else irPara(indiceAtual + 1); }
-  function anterior() { if (modo === 'album') moverAlbum(-1); else irPara(indiceAtual - 1); }
-
-  function abrirAlbum() {
-    modo = 'album';
-    albumIdx = 0;
-    infoAberta = false;
-    infoIdx = 0;
-    gameboy.classList.add('is-album');
-    telaBox.classList.add('is-album');
-    desenhar(true);
-  }
-
-  function sairAlbum() {
-    modo = 'entregas';
-    infoAberta = false;
-    gameboy.classList.remove('is-album');
-    telaBox.classList.remove('is-album');
-    desenhar(true);
-  }
-
-  // SELECT na capa: abre ou fecha a explicação dos 6 elementos
-  function alternarInfo() {
-    infoAberta = !infoAberta;
-    infoIdx = 0;
-    desenhar();
-  }
-
-  /* ---------- BOTÕES ---------- */
-
-  // Cruz direcional: direita/baixo avança, esquerda/cima volta
-  document.getElementById('gb-right').addEventListener('click', proxima);
-  document.getElementById('gb-down').addEventListener('click', proxima);
-  document.getElementById('gb-left').addEventListener('click', anterior);
-  document.getElementById('gb-up').addEventListener('click', anterior);
-
-  // Botão B: nas entregas volta pra primeira; no álbum volta uma tela (na capa, sai)
-  document.getElementById('gb-b').addEventListener('click', function () {
-    if (modo === 'album') {
-      if (infoAberta) { infoAberta = false; desenhar(); }
-      else if (albumIdx === 0) sairAlbum();
-      else moverAlbum(-1);
-    } else {
-      irPara(0);
-    }
-  });
-
-  // Botão A: no álbum avança; nas entregas abre o repositório (se já tiver link e estiver "Concluída")
-  document.getElementById('gb-a').addEventListener('click', function () {
-    if (modo === 'album') { moverAlbum(1); return; }
-    const e = entregas[indiceAtual];
-    if (e.status === 'Concluída' && e.link && e.link.indexOf('[PREENCHER') === -1) {
-      if (e.num === '07') { location.assign(e.link); } else { window.open(e.link, '_blank', 'noopener'); }
-    }
-  });
-
-  // SELECT: no álbum, na capa, explica a capa; nas entregas, volta uma entrega
-  document.getElementById('gb-select').addEventListener('click', function () {
-    if (modo === 'album') {
-      if (albumIdx === 0 || infoAberta) alternarInfo();
-    } else {
-      anterior();
-    }
-  });
-
-  // START: na entrega 01 abre o álbum; no álbum sai; nas outras entregas avança
-  document.getElementById('gb-start').addEventListener('click', function () {
-    if (modo === 'album') sairAlbum();
-    else if (indiceAtual === 0) abrirAlbum();
-    else proxima();
-  });
-
-  // Ombros L/R do GBA: mais um atalho pra andar entre as telas
-  document.getElementById('gb-l').addEventListener('click', anterior);
-  document.getElementById('gb-r').addEventListener('click', proxima);
-
-  /* ---------- ANIMAÇÃO DE APERTAR (2.5D) ---------- */
-
-  // Cada botão ganha a classe "is-pressed" por pelo menos 110ms, mesmo num toque rápido.
-  // Na cruz direcional, a cruz inteira também inclina pro lado apertado.
-  const DIRECOES = ['p-up', 'p-down', 'p-left', 'p-right'];
+  function anterior() { irPara(indiceAtual - 1); }
+  function proxima() { irPara(indiceAtual + 1); }
+  function abrirAtividade() { location.assign(entregas[indiceAtual].link); }
+  ['gb-left','gb-up','gb-l','gb-select'].forEach(function (id) { document.getElementById(id).addEventListener('click', anterior); });
+  ['gb-right','gb-down','gb-r'].forEach(function (id) { document.getElementById(id).addEventListener('click', proxima); });
+  document.getElementById('gb-a').addEventListener('click', abrirAtividade);
+  document.getElementById('gb-start').addEventListener('click', abrirAtividade);
+  document.getElementById('gb-b').addEventListener('click', function () { irPara(0); });
+    const DIRECOES = ['p-up', 'p-down', 'p-left', 'p-right'];
 
   function pressionar(btn) {
     btn.classList.add('is-pressed');
@@ -1694,54 +1375,26 @@ footer {
     });
   });
 
-  /* ---------- TECLADO ---------- */
 
-  const TECLAS = {
-    ArrowRight: 'gb-right',
-    ArrowDown: 'gb-down',
-    ArrowLeft: 'gb-left',
-    ArrowUp: 'gb-up'
-  };
-
-  document.addEventListener('keydown', function (evento) {
-    if (evento.repeat) return;
-
-    // Esc sai do álbum
-    if (evento.key === 'Escape' && modo === 'album') {
-      simularToque('gb-start');
-      sairAlbum();
-      return;
+  document.addEventListener('keydown', function (event) {
+    if (event.repeat || document.getElementById('senai-dialog').open || /INPUT|TEXTAREA|SELECT/.test(event.target.tagName)) return;
+    const buttons = { ArrowLeft:'gb-left', ArrowUp:'gb-up', ArrowRight:'gb-right', ArrowDown:'gb-down' };
+    if (!buttons[event.key]) return;
+    event.preventDefault();
+    if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') anterior(); else proxima();
+    simularToque(buttons[event.key]);
+  });
+  function selecionarPeloLink() {
+    const num = location.hash === '#arvore-genealogica' ? '03' : location.hash === '#mundo-senai' ? '07' : null;
+    if (num) {
+      indiceAtual = entregas.findIndex(function (e) { return e.num === num; });
+      desenhar();
+      requestAnimationFrame(function () { gameboy.scrollIntoView({ block:'start' }); });
     }
-
-    const id = TECLAS[evento.key];
-    if (!id) return;
-
-    // Setas do teclado também funcionam, pra quem não tem mouse na tela
-    if (evento.key === 'ArrowRight' || evento.key === 'ArrowDown') proxima();
-    else anterior();
-    simularToque(id);
-  });
-
-  function mostrarArvore() {
-    indiceAtual = entregas.findIndex(function (entrega) { return entrega.num === '03'; });
-    if (modo === 'album') sairAlbum(); else desenhar();
   }
-
-  function mostrarMundoSenai() {
-    indiceAtual = indiceSenai;
-    if (modo === 'album') sairAlbum(); else desenhar();
-  }
-
-  window.addEventListener('hashchange', function () {
-    if (location.hash === '#mundo-senai') mostrarMundoSenai();
-    if (location.hash === '#arvore-genealogica') mostrarArvore();
-  });
-  if (location.hash === '#arvore-genealogica') {
-    indiceAtual = entregas.findIndex(function (entrega) { return entrega.num === '03'; });
-    requestAnimationFrame(function () { gameboy.scrollIntoView({ block: 'start' }); });
-  }
-  desenharEntrega();
-  atualizarHint();
+  window.addEventListener('hashchange', selecionarPeloLink);
+  desenhar();
+  selecionarPeloLink();
 })();
 
 </script>
