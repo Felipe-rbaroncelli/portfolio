@@ -904,6 +904,10 @@ footer {
 .gb-arvore img { display:block; width:100%; height:auto; border-radius:8px; }
 .gb-arvore .gb-title { min-height:0; margin:0; }
 .gb-arvore .senai-button { justify-self:start; font-family:var(--font-body); font-size:.85rem; }
+.gb-family-work { font: .9rem/1.6 var(--font-body); color: #2b2d27; }
+.gb-family-work h4 { margin: 0 0 .4rem; font: 600 1rem/1.3 var(--font-head); }
+.gb-family-work ul { margin: 0; padding-left: 1.2rem; }
+.gb-family-work li + li { margin-top: .35rem; }
 </style>
 </head>
 <body>
@@ -1466,6 +1470,15 @@ footer {
           <img src="assets/arvore-genealogica.png" alt="Árvore genealógica com as profissões dos avós, pais e tio de Felipe, identificado como estudante" width="1672" height="941">
         </a>
         <a class="senai-button" href="assets/arvore-genealogica.png" target="_blank" rel="noopener">Ampliar imagem</a>
+        <div class="gb-family-work">
+          <h4>Atuação profissional</h4>
+          <ul>
+            <li><strong>José</strong> — Engenheiro agrônomo, trabalhava no IMA.</li>
+            <li><strong>Sérgio</strong> — Diretor, trabalhava na CBC.</li>
+            <li><strong>Sandra</strong> — Empresária, dona de uma livraria.</li>
+            <li><strong>Meu pai</strong> — Diretor do SESI.</li>
+          </ul>
+        </div>
       </article>`;
       montarDots(entregas.length, indiceAtual);
       return;
